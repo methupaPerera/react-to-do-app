@@ -50,7 +50,7 @@ const Task = ({ task }) => {
                         className="cursor-pointer whitespace-nowrap"
                     />
                     <div>
-                        {text?.length > 25 ? text?.slice(0, 25) + "..." : text}
+                        {text?.length > 18 ? text?.slice(0, 18) + "..." : text}
                     </div>
                 </div>
 
