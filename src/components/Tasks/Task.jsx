@@ -50,7 +50,7 @@ const Task = ({ task }) => {
                         className="cursor-pointer"
                     />
                     <div>
-                        {text?.length > 25 ? text?.slice(0, 10) + "..." : text}
+                        {text?.length > 25 ? text?.slice(0, 25) + "..." : text}
                     </div>
                 </div>
 
