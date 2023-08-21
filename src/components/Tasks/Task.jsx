@@ -3,12 +3,11 @@ import { useOutletContext } from "react-router-dom";
 
 import TaskRenamer from "../Inputs/TaskRenamer";
 
-const Task = ({ task, setDetails }) => {
-    const { id, text, date, isChecked } = task;
+const Task = ({ task }) => {
+    const { id, text, isChecked } = task;
     const [checked, setChecked] = useState(isChecked);
     const { taskList, setTaskList } = useOutletContext();
 
-    const [seeMore, setSeemore] = useState(false);
     const [rename, setRename] = useState(false);
 
     const [renameValue, setRenameValue] = useState("");
@@ -57,12 +56,6 @@ const Task = ({ task, setDetails }) => {
 
                 <div className="flex gap-2 items-center">
                     <div
-                        className="cursor-pointer"
-                        onClick={() => setDetails(true)}
-                    >
-                        <SeeMore />
-                    </div>
-                    <div
                         onClick={() => setRename(!rename)}
                         className="cursor-pointer"
                     >
@@ -85,21 +78,6 @@ const Task = ({ task, setDetails }) => {
                 />
             )}
         </div>
-    );
-};
-
-const SeeMore = () => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-8 h-8"
-            viewBox="0 0 24 24"
-        >
-            <path
-                fill="currentColor"
-                d="M13 7h9v2h-9zm0 8h9v2h-9zm3-4h6v2h-6zm-3 1L8 7v4H2v2h6v4z"
-            ></path>
-        </svg>
     );
 };
 
