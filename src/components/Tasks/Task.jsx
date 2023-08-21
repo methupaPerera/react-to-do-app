@@ -56,7 +56,7 @@ const Task = ({ task }) => {
 
                 <div className="flex gap-2 items-center">
                     <div className="cursor-pointer">
-                        <Link to={`${id}`}>
+                        <Link to={`/${id}`}>
                             <SeeMore />
                         </Link>
                     </div>
