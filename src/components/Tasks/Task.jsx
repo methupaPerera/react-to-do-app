@@ -47,10 +47,10 @@ const Task = ({ task }) => {
                         type="checkbox"
                         checked={checked}
                         onChange={() => checkboxHandler()}
-                        className="cursor-pointer whitespace-nowrap"
+                        className="cursor-pointer now"
                     />
-                    <div>
-                        {text?.length > 18 ? text?.slice(0, 18) + "..." : text}
+                    <div title={text}>
+                        {text?.length > 15 ? text?.slice(0, 15) + "..." : text}
                     </div>
                 </div>
 
