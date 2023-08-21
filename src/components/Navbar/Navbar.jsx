@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = ({ setTaskList, taskList }) => {
     return (
@@ -36,7 +36,7 @@ const Navbar = ({ setTaskList, taskList }) => {
                 className="text-center bg-[#917FB3] hover:bg-[#8770b2] duration-300 \
         text-[#2A2F4F] py-1 px-3 font-bold rounded-xl"
             >
-                Clear
+                <Link to="/">Clear</Link>
             </button>
         </div>
     );
