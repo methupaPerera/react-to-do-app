@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = ({ setTaskList, taskList }) => {
     return (
-        <div className="flex justify-between items-center mt-3 mb-4 text-lg ml-1">
-            <div className="flex gap-6">
+        <div className="flex sm:justify-between justify-center flex-col gap-2 sm:flex-row items-center mt-3 mb-2 sm:mb-4 text-lg ml-1">
+            <div className="flex gap-4 justify-center">
                 <NavLink
                     to="/"
                     className={({ isActive }) => (isActive ? "underline" : "")}
@@ -34,7 +34,7 @@ const Navbar = ({ setTaskList, taskList }) => {
                     localStorage.clear();
                 }}
                 className="text-center bg-[#917FB3] hover:bg-[#8770b2] duration-300 \
-        text-[#2A2F4F] py-2 px-4 font-bold rounded-xl"
+        text-[#2A2F4F] py-1 px-3 font-bold rounded-xl"
             >
                 Clear
             </button>

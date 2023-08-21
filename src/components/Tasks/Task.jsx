@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+
 import TaskRenamer from "../Inputs/TaskRenamer";
 
-const Task = ({ task }) => {
+const Task = ({ task, setDetails }) => {
     const { id, text, date, isChecked } = task;
     const [checked, setChecked] = useState(isChecked);
-    const { taskList } = useOutletContext();
+    const { taskList, setTaskList } = useOutletContext();
 
     const [seeMore, setSeemore] = useState(false);
     const [rename, setRename] = useState(false);
 
+    const [renameValue, setRenameValue] = useState("");
+
     const classNames =
-        "bg-[#917FB3] px-4 py-3 border-l-8 border-[#E5BEEC] \
-        rounded-xl hover:bg-[#8c75b6] duration-200 flex justify-between mr-2";
+        "bg-[#917FB3] px-4 h-12 border-l-8 border-[#E5BEEC] \
+        rounded-xl hover:bg-[#8c75b6] duration-200 flex justify-between";
 
     const checkboxHandler = () => {
         setChecked((prev) => {
@@ -25,8 +28,20 @@ const Task = ({ task }) => {
         });
     };
 
+    const renameHandler = () => {
+        const foundObj = taskList.find((obj) => obj.id === id);
+        foundObj.text = renameValue;
+        localStorage.setItem("taskList", JSON.stringify(taskList));
+    };
+
+    const deleteHandler = () => {
+        const filteredTaskList = taskList.filter((obj) => obj.id !== id);
+        setTaskList(filteredTaskList);
+        localStorage.setItem("taskList", JSON.stringify(filteredTaskList));
+    };
+
     return (
-        <div className="relative">
+        <div className="relative mr-2">
             <div className={classNames}>
                 <div className="flex gap-2 items-center">
                     <input
@@ -41,18 +56,34 @@ const Task = ({ task }) => {
                 </div>
 
                 <div className="flex gap-2 items-center">
-                    <div className="cursor-pointer">
+                    <div
+                        className="cursor-pointer"
+                        onClick={() => setDetails(true)}
+                    >
                         <SeeMore />
                     </div>
-                    <div onClick={() => setRename(!rename)} className="cursor-pointer">
+                    <div
+                        onClick={() => setRename(!rename)}
+                        className="cursor-pointer"
+                    >
                         <Rename />
                     </div>
-                    <div className="cursor-pointer">
+                    <div
+                        onClick={() => deleteHandler()}
+                        className="cursor-pointer"
+                    >
                         <Delete />
                     </div>
                 </div>
             </div>
-            {rename && <TaskRenamer />}
+            {rename && (
+                <TaskRenamer
+                    setRename={setRename}
+                    renameValue={renameValue}
+                    setRenameValue={setRenameValue}
+                    renameHandler={renameHandler}
+                />
+            )}
         </div>
     );
 };
