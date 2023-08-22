@@ -3,10 +3,11 @@ import React, { useState } from "react";
 const TaskRenamer = ({ setRename, renameValue, setRenameValue, renameHandler }) => {
     const classNames =
         "bg-[#917FB3] px-2 h-12 border-l-8 border-[#E5BEEC] \
-    rounded-xl hover:bg-[#8c75b6] duration-200 flex justify-between items-center shadow-2xl shadow-gray-900";
+         rounded-xl hover:bg-[#8c75b6] duration-200 flex justify-between\
+         items-center shadow-2xl shadow-gray-900 absolute top-0 w-full gap-2";
 
     return (
-        <div className={`absolute top-0 w-full gap-2 ${classNames}`}>
+        <div className={classNames}>
             <input
                 type="text"
                 value={renameValue}
@@ -35,6 +36,8 @@ const TaskRenamer = ({ setRename, renameValue, setRenameValue, renameHandler }) 
         </div>
     );
 };
+
+// Icons --------------------------------
 
 const Correct = () => {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = ({ setTaskList, taskList }) => {
+const Navbar = ({ setTaskList, taskList, setIndex }) => {
     return (
         <div className="flex sm:justify-between justify-center flex-col gap-2 sm:flex-row items-center mt-3 mb-2 sm:mb-4 text-lg ml-1">
             <div className="flex gap-4 justify-center">
@@ -31,6 +31,7 @@ const Navbar = ({ setTaskList, taskList }) => {
                         return;
                     }
                     setTaskList([]);
+                    setIndex(0);
                     localStorage.clear();
                 }}
                 className="text-center bg-[#917FB3] hover:bg-[#8770b2] duration-300 \

@@ -5,11 +5,11 @@ import TaskRenamer from "../Inputs/TaskRenamer";
 
 const Task = ({ task }) => {
     const { id, text, isChecked } = task;
-    const [checked, setChecked] = useState(isChecked);
     const { taskList, setTaskList } = useOutletContext();
 
+    // State values
+    const [checked, setChecked] = useState(isChecked);
     const [rename, setRename] = useState(false);
-
     const [renameValue, setRenameValue] = useState("");
 
     const classNames =

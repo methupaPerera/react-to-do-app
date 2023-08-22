@@ -2,13 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./Layout";
-import {
-    AllTasks,
-    PendingTasks,
-    CompletedTasks,
-    TaskInfo,
-    Task,
-} from "./components";
+import { AllTasks, PendingTasks, CompletedTasks, TaskInfo } from "./components";
 
 const App = () => {
     return (

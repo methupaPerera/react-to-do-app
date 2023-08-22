@@ -9,6 +9,7 @@ const Layout = () => {
     const [taskList, setTaskList] = useState([]);
     const [index, setIndex] = useState(0);
 
+    // Retireving the local storage values onload if exist
     useEffect(() => {
         const storedTaskList = localStorage.getItem("taskList");
         const storedIndex = localStorage.getItem("index");
@@ -27,13 +28,17 @@ const Layout = () => {
     }, []);
 
     const taskHandler = () => {
+        // Cheching if the task input is empty
         if (taskInputValue.trim() === "") {
             alert("Please write a task!");
             return;
         }
+
+        // Saving the index to local storage
         const newIndex = index + 1;
         localStorage.setItem("index", JSON.stringify(newIndex));
 
+        // Setting the task to the variable and local storage
         const newTaskList = [
             ...taskList,
             {
@@ -46,6 +51,7 @@ const Layout = () => {
         ];
         localStorage.setItem("taskList", JSON.stringify(newTaskList));
 
+        // Resetting input values after clicking add.
         setTaskList(newTaskList);
         setTaskInputValue("");
         setIndex(newIndex);
@@ -64,7 +70,7 @@ const Layout = () => {
                     onClick={taskHandler}
                 />
             </Template>
-            <Navbar setTaskList={setTaskList} taskList={taskList} />
+            <Navbar setTaskList={setTaskList} taskList={taskList} setIndex={setIndex} />
             <div className="rounded-xl overflow-y-scroll">
                 <Outlet context={{ taskList, setTaskList }} />
             </div>

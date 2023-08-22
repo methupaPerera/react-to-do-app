@@ -6,6 +6,7 @@ const TaskInfo = () => {
     const { taskList } = useOutletContext();
 
     const foundObj = taskList.find((obj) => obj.id == id);
+    console.log(foundObj.id)
 
     return (
         <div className="bg-[#917FB3] rounded-xl p-4 h-44 sm:h-52">
