@@ -45,7 +45,7 @@ const Layout = () => {
                 id: newIndex,
                 text: taskInputValue,
                 date:
-                    `${new Date().getDate()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
+                    `${new Date().getDate()}-${new Date().getMonth()+1}-${new Date().getFullYear()}`,
                 isChecked: false,
             },
         ];
